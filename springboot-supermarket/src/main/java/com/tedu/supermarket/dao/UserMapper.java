@@ -14,7 +14,10 @@ import java.util.ArrayList;
 public interface UserMapper {
     @Select("select * from user")
     public ArrayList<User> getAllUser();
+
     public ArrayList<User> queryUser(User user);
+
     public void registerUser(User user);
+
     public ArrayList<User> findUserByUserName(String name);
 }

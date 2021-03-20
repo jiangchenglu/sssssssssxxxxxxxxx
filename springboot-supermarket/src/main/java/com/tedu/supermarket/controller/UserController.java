@@ -25,12 +25,12 @@ public class UserController {
         System.out.println("页面传入用户信息是：" + user);
 
         int i = iUserService.queryUser(user);
-        if(i==1){
-            model.addAttribute("keycode","2010");
-            model.addAttribute("msg","登陆成功！");
-        }else{
-            model.addAttribute("keycode","2011");
-            model.addAttribute("msg","登陆失败！");
+        if (i == 1) {
+            model.addAttribute("keycode", "2010");
+            model.addAttribute("msg", "登陆成功！");
+        } else {
+            model.addAttribute("keycode", "2011");
+            model.addAttribute("msg", "登陆失败！");
         }
 
 //
@@ -45,23 +45,26 @@ public class UserController {
 
         return "user"; //加上前后缀:/templates/user.html
     }
+
     @RequestMapping("/toLogin")
-    public String toLogin(){
+    public String toLogin() {
         return "login";
     }
+
     @RequestMapping("/toRegister")
-    public String toRegister(){
+    public String toRegister() {
         return "register";
     }
+
     @RequestMapping("/register")
-    public String register(User user,Model model){
+    public String register(User user, Model model) {
         System.out.println(user);
         int userByUserName = iUserService.findUserByUserName(user.getName());
-        if(userByUserName!=0){
-            model.addAttribute("msg","用户名已存在！");
-        }else if(!user.getPassword().equals(user.getConfirmPassword())){
-            model.addAttribute("msg","两次密码不一致!");
-        }else{
+        if (userByUserName != 0) {
+            model.addAttribute("msg", "用户名已存在！");
+        } else if (!user.getPassword().equals(user.getConfirmPassword())) {
+            model.addAttribute("msg", "两次密码不一致!");
+        } else {
             iUserService.registerUser(user);
             return "login";
         }

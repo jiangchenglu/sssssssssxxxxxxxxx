@@ -8,18 +8,20 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
     @Autowired
     private UserMapper userMapper;
+
     @Override
     public ArrayList<User> getAllUser() {
         ArrayList<User> allUser = userMapper.getAllUser();
         return null;
     }
+
     @Override
     public int queryUser(User user) {
         ArrayList<User> users = userMapper.queryUser(user);
-        int length=users.size();
+        int length = users.size();
         return length;
     }
 

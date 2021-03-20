@@ -15,8 +15,8 @@ public class UMTest {
     UserMapper userMapper;
 
     @Test
-    void getAll(){
-        ArrayList<User> alluser= userMapper.getAllUser();
+    void getAll() {
+        ArrayList<User> alluser = userMapper.getAllUser();
         System.out.println(alluser);
     }
 }
